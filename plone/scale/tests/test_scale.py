@@ -35,6 +35,9 @@ class ScalingTests(TestCase):
     def testSameSizeDownScale(self):
         self.assertEqual(scaleImage(PNG, 84, 103, "down")[2], (84, 103))
 
+    def testSameSizeNoMoreKB(self):
+        self.assertFalse(len(scaleImage(PNG, 84, 103, "down")[0]) > len(PNG))
+
     def testHalfSizeDownScale(self):
         self.assertEqual(scaleImage(PNG, 42, 51, "down")[2], (42, 51))
 
